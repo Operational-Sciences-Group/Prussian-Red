@@ -1,14 +1,13 @@
-# Prussian Red 0.1v Using Python 3.8.6
+#Prussian Red 0.1v Using Python 3.8.6
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
 # Prussian Red is a Project Name Generator
 import random
 import linecache
 
-#Part 1 intro
+# intro
 print("Executing...")
 print("""
-
   _____                    _               _____          _
  |  __ \                  (_)             |  __ \        | |
  | |__) | __ _   _ ___ ___ _  __ _ _ __   | |__) |___  __| |
@@ -53,14 +52,13 @@ print("""
                                    ,(#@@@ @ .
                                      @ (@
                                        *,
-
 """)
 
-
+# Collect user input categories
 input("Press enter to continue:")
 
+#input 0 is prefix category
 input0 = int(input("""
-
 Select a prefix:
 0) No prefix
 1) Random
@@ -88,9 +86,9 @@ Select a prefix:
 23) Weather & Atmosphere
 >"""))
 
+# input 1 is base word category
 input1 = int(input("""
 Select a base-word:
-
 1) Random
 2) Aquatic Animals
 3) Birds
@@ -115,6 +113,7 @@ Select a base-word:
 22) Venomous or Biting Animals
 23) Weather & Atmosphere
 >"""))
+# input 2 is suffix category
 
 input2 = int(input("""
 Select a suffix:
@@ -144,306 +143,424 @@ Select a suffix:
 23) Weather & Atmosphere
 >"""))
 
-# If wordlist1.txt is changed, then all blank and category title lines have got be added to this list,
-# Otherwise, you have a codword of "IC codewords" or other category title.
-nogonumbers = [1,2,17,18,19,60,61,62,83,84,85,114,115,116,161,162,163,182,183,184,205,206,207,227,227,229,250
- ,251,252,305,306,307,334,335,337,347,348,349,404,405,406,414,415,416,431,432,4033,460,461,462,474,
- 475,476,490,491,492,500,501,502,507,508,509,523,524,525]
+
+
+# Init category lists
+
+aquatic_animals = ['Alligator', 'Barracuda', 'Crocodile', 'Gator', 'Great White',
+'Hammerhead' 'Jaws', 'Lionfish', 'Mako', 'Moray', 'Orca', 'Piranha', 'Shark',
+'Stingray']
+
+birds = ['Albatross', 'Bald Eagle','Blackhawk','Blue Jay','Chukar','Condor','Crane',
+'Dove','Eagle','Falcon','Goose (Golden Goose)','Grouse','Hawk','Heron',
+'Hornbill','Hummingbird','Lark','Mallard','Oriole','Osprey',
+'Owl','Parrot','Penguin','Peregrine','Pelican','Pheasant','Quail','Raptor',
+'Raven','Robin','Sandpiper','Seagull','Sparrow','Stork','Thunderbird',
+'Toucan','Vulture','Waterfowl','Woodpecker','Wren']
+
+bladed_weapons = ['Axe','Battle Axe','Bayonet','Blade','Crossbow','Dagger'
+,'Excalibur','Halberd','Harpoon','Hatchet','Machete','Saber','Samurai','Scimitar'
+,'Scythe','Skewer','Stiletto','Spear','Sword','Tomahawk','Gladius']
+
+celestial = ['Andromeda','Aquila','Cassiopeia','Celestial','Cepheus','Cygnus','Comet',
+'Delphinus','Drako','Eclipse','Galactic','Lunar','Lyra','Meteor','Nova','Orbit(al)',
+'Orion','Perseus','Portal','Satellite','Serpens','Solar','Space','Star','Stellar','Supernova',
+'Triangulum','Universe']
+
+colors = ['Aero','Amber','Azure','Beaver','Black','Blue','Bronze','Brown','Cadet',
+'Camel','Charcoal','Crystal','Cyan','Ebony','Drab','Emerald','Fallow','Flame','Flax',
+'Frostbite','Green','Gunmetal','Iceberg','Independence','Ivory','Jet',
+'Liberty','Lava','Midnight','Mint','Mystic','Onyx','Opal','Orange','Oxblood','Red','Scarlet','Shadow',
+'Snow','Sunglow','Sunray','Sunset','Volt','White']
+
+felines = ['Badger','Black Cat','Bobcat','Caracal','Cheetah','Cougar','Jaguar',
+'Leopard','Lion','Lynx','Mountain Lion','Ocelot','Panther','Puma','Siamese',
+'Serval','Tiger','Wolverine']
+
+geographic_landforms = ['Abyss','Arch','Atoll','Bay','Beach','Beach','Bluff','Cape'
+,'Cavern','Chasm','Cove','Crater','Desert','Den','Dune','Horizon','Mountain'
+,'Plain','Summit','Valley']
+
+greek__roman_myths = ['Ajax','Apollo','Ares','Artemis','Athena','Cyclopes',
+'Hercules','Hermes','Iris','Medusa','Minotaur','Nemesis','Neptune','Pandora',
+'Perseus','Poseidon','Talos','Triton','Zeus']
+
+greek_alphabet = ['Alpha','Beta''Gamma','Delta','Epsilon','Zeta','Theta','Iota',
+'Kappa','Lamda','Omikron','Pi','Rho','Sigma','Tau','Ypsilon','Phi','Khi','Psi',
+'Omega',]
+
+IC_codenames = ['Acorn','Aegis','Agile','Apex','Argonaut','Artichoke','Azorian',
+'Birch','Blackjack','Blackshield','Blockbuster','Brimstone','Capital','Cartwheel',
+'Chopstick','Circle','Colossus','Eastwind','Forbidden','Foxhound','Genesis',
+'Gusto','Hawkeye','Invader','Ironside','Keyhole','Keystone','Lancelot','Magnum',
+'Monarch','Nomad','Octagon','Orange','Outlaw','Patriot','Phalanx','Phoenix','Prism','Rainbow',
+'Razor','Revelation','Rover','Shakedown','Shockwave','Shooter','Square','Stargate',
+'Steamroller','Sunray','Vector','Volley','Washtub']
+
+materials = ['Chrome','Cobalt','Copper','Gold','Helium','Hydrogen','Iridium',
+'Iron','Krypton','Lead','Lithium','Mercury','Neon','Nickel','Nitrogen','Oxygen',
+'Platinum','Radon','Silicon','Silver','Tin','Titanium','Tungsten','Quartz',
+'Wood','Xenon']
+
+mythical_creatures = ['Basilisk','Bigfoot','Medusa','Kraken','Siren','Dragon',
+'Matador','Pegasus','Yeti','Thunderbird']
+
+places = ['Aberdeen','Altis','Arctic','Armageddon','Aurora','Belgium','Blue Ridge',
+'Burmuda','Cape Town','Chernarus','Chernobyl','Cheyenne','Erie','Everest','Exeter',
+'Falcon Lake','Groom Lake','Huron','Harcourt','Labyrinth','Langley','Loch Ness','London',
+'Manhattan','Mclean','Michigan','Moscow','Nuremberg','Olympus','Ontario','Oreokastro',
+'Passchendaele','Pangaea','Petra','Pripyat','Raven Rock','Roswell','Savannah','Sawtooth',
+'Scotland','Siberia','Stratis','Superior','Sydney','Tanoa','Texas','Thule','Transylvania','Valhalla',
+'Vostok','Warrenton','Washington','Zion']
+
+planets = ['Earth','Jupiter','Mars','Mercury','Neptune','Saturn','Venus']
+
+prefixes = ['Atto','Exa','Femto','Giant','Giga','Kilo','Meta','Micro','Nano','Peta','Pico','Tera'
+'Tiny','Titanic']
+
+science = ['Acid','Acid Rain','Alkali','Alkaloid','Anomaly','Catalyst','Core','Electron',
+'Fluorescent','Fusion','Gravity','Inherent','Kinetic','Laser','Light','Mechanical',
+'Metric','Neutron','Optical','Particle','Radian','Radiation','Reactor','Skeptic','Sonar',
+'Spectrum','Thermal']
+
+shapes = ['Astroid','Circle','Digon','Heptagon','Hexagon','Lune','Pentagon'
+'Prism','Sphere','Spiral','Triangle']
+
+snakes = ['Anaconda','Boa','Cobra','Copperhead','Cottonmouth','Garter','Kingsnake'
+'Mamba','Python','Rattler','Sidewinder','Taipan','Viper']
+
+toxins = ['Arsine','Chlorine','Cyanide','Lewisite','Phosgene','Ricin','Sarin']
+
+trees = ['Ash','Cypress','Oak','Willow']
+
+venomous_or_biting_animals = ['Abispa','Andrena','Black Widow','Cataglyphis'
+'Centipede','Cephalotes','Formica','Hornet','Jellyfish','Scorpion','Tarantula',
+'Wasp','Yellowjacket']
+
+weather_atmosphere = ['Aurora','Avalanche','Blizzard','Cyclone','Dewdrop',
+'Downpour','Duststorm','Fogbank','Freeze','Frost','Gust','Hurricane','Ice Storm',
+'Jet Stream','Lightning','Maelstrom','Mist','Monsoon','Rainbow','Raindrop',
+'Sand Storm','Seabreeze','Snowflake','Stratosphere','Storm','Sunrise','Sunset',
+'Tornado','Thunder','Thunderbolt','Thunderstorm','Tropical Storm','Twilight',
+'Twister','Typhoon','Updraft','Vortex','Waterspout','Whirlwind','Wind Chill']
+
+# List of lists
+big_list = []
+big_list.append(aquatic_animals)
+big_list.append(birds)
+big_list.append(bladed_weapons)
+big_list.append(celestial)
+big_list.append(colors)
+big_list.append(felines)
+big_list.append(geographic_landforms)
+big_list.append(greek__roman_myths)
+big_list.append(greek_alphabet)
+big_list.append(IC_codenames)
+big_list.append(materials)
+big_list.append(mythical_creatures)
+big_list.append(places)
+big_list.append(planets)
+big_list.append(prefixes)
+big_list.append(science)
+big_list.append(shapes)
+big_list.append(snakes)
+big_list.append(toxins)
+big_list.append(trees)
+big_list.append(venomous_or_biting_animals)
+big_list.append(weather_atmosphere)
+
+
 
 #Part 2 Assign variables via random number generation.
+
+
 if input0 == 0:
-    number0 = random.randrange(3,565)
+     print("\n")
 
 elif input0 == 1:
-    number0 = random.randrange(3, 565)
-    while number0 == nogonumbers:
-        number0 = random.randrange(3, 565)
-    else:
-        print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(big_list)
+    output0 = random.choice(output0)
+    print(output0)
 
 elif input0 == 2:
-    number0 = random.randrange(3,16)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(aquatic_animals)
+    print(output0)
 
 elif input0 == 3:
-    number0 = random.randrange(20,59)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(birds)
+    print(output0)
 
 elif input0 == 4:
-    number0 = random.randrange(63,82)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(bladed_weapons)
+    print(output0)
 
 elif input0 == 5:
-    number0 = random.randrange(86,113)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(celestial)
+    print(output0)
 
 elif input0 == 6:
-    number0 = random.randrange(117,160)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(colors)
+    print(output0)
 
 elif input0 == 7:
-    number0 = random.randrange(164,181)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(felines)
+    print(output0)
 
 elif input0 == 8:
-    number0 = random.randrange(185,204)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(geographic_landforms)
+    print(output0)
 
 elif input0 == 9:
-    number0 = random.randrange(208,226)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(greek__roman_myths)
+    print(output0)
 
 elif input0 == 10:
-    number0 = random.randrange(230,249)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(greek_alphabet)
+    print(output0)
 
 elif input0 == 11:
-    number0 = random.randrange(253,304)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(IC_codenames)
+    print(output0)
 
 elif input0 == 12:
-    number0 = random.randrange(308,333)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(materials)
+    print(output0)
 
 elif input0 == 13:
-    number0 = random.randrange(337,346)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(mythical_creatures)
+    print(output0)
 
 elif input0 == 14:
-    number0 = random.randrange(350,403)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(places)
+    print(output0)
 
 elif input0 == 15:
-    number0 = random.randrange(407,413)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(planets)
+    print(output0)
 
 elif input0 == 16:
-    number0 = random.randrange(417,430)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(prefixes)
+    print(output0)
 
 elif input0 == 17:
-    number0 = random.randrange(434,459)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(science)
+    print(output0)
 
 elif input0 == 18:
-    number0 = random.randrange(463,473)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(shapes)
+    print(output0)
 
 elif input0 == 19:
-    number0 = random.randrange(477,489)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(snakes)
+    print(output0)
 
 elif input0 == 20:
-    number0 = random.randrange(493,499)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(birds)
+    print(output0)
 
 elif input0 == 21:
-    number0 = random.randrange(503,506)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(trees)
+    print(output0)
 
 elif input0 == 22:
-    number0 = random.randrange(510,522)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(venomous_or_biting_animals)
+    print(output0)
 
 elif input0 == 23:
-    number0 = random.randrange(526,565)
-    print(linecache.getline('wordlist1.txt', number0))
+    output0 = random.choice(weather_atmosphere)
+    print(output0)
 
 #Start baseword
 if input1 == 0:
-    number1 = random.randrange(3,565)
+    print("\n")
 
 elif input1 == 1:
-    number1 = random.randrange(3,565)
-    while number1==nogonumbers:
-        number1 =random.randrange(3,565)
-    else:
-        print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(big_list)
+    output1 = random.choice(output1)
+    print(output1)
 
 elif input1 == 2:
-    number1 = random.randrange(3,16)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(aquatic_animals)
+    print(output1)
 
 elif input1 == 3:
-    number1 = random.randrange(20,59)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(birds)
+    print(output1)
 
 elif input1 == 4:
-    number1 = random.randrange(63,82)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(bladed_weapons)
+    print(output1)
 
 elif input1 == 5:
-    number1 = random.randrange(86,113)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(celestial)
+    print(output1)
 
 elif input1 == 6:
-    number1 = random.randrange(117,160)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(colors)
+    print(output1)
 
 elif input1 == 7:
-    number1 = random.randrange(164,181)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(felines)
+    print(output1)
 
 elif input1 == 8:
-    number1 = random.randrange(185,204)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(geographic_landforms)
+    print(output1)
 
 elif input1 == 9:
-    number1 = random.randrange(208,226)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(greek__roman_myths)
+    print(output1)
 
 elif input1 == 10:
-    number1 = random.randrange(230,249)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(greek_alphabet)
+    print(output1)
 
 elif input1 == 11:
-    number1 = random.randrange(253,304)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(IC_codenames)
+    print(output1)
 
 elif input1 == 12:
-    number1 = random.randrange(308,333)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(materials)
+    print(output1)
 
 elif input1 == 13:
-    number1 = random.randrange(337,346)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(mythical_creatures)
+    print(output1)
 
 elif input1 == 14:
-    number1 = random.randrange(350,403)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(places)
+    print(output1)
 
 elif input1 == 15:
-    number1 = random.randrange(407,413)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(planets)
+    print(output1)
 
 elif input1 == 16:
-    number1 = random.randrange(417,430)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(prefixes)
+    print(output1)
 
 elif input1 == 17:
-    number1 = random.randrange(434,459)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(science)
+    print(output1)
 
 elif input1 == 18:
-    number1 = random.randrange(463,473)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(shapes)
+    print(output1)
 
 elif input1 == 19:
-    number1 = random.randrange(477,489)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(snakes)
+    print(output1)
 
 elif input1 == 20:
-    number1 = random.randrange(493,499)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(toxins)
+    print(output1)
 
 elif input1 == 21:
-    number1 = random.randrange(503,506)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(trees)
+    print(output1)
 
 elif input1 == 22:
-    number1 = random.randrange(510,522)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(venomous_or_biting_animals)
+    print(output1)
 
 elif input1 == 23:
-    number1 = random.randrange(526,565)
-    print(linecache.getline('wordlist1.txt', number1))
+    output1 = random.choice(weather_atmosphere)
+    print(output1)
 
 #start suffix
 
 if input2 == 0:
-    number2 = random.randrange(3,565)
+    print("\n")
 
 elif input2 == 1:
-    number2 = random.randrange(3, 565)
-    while number2 == nogonumbers:
-        number2 = random.randrange(3, 565)
-    else:
-        print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(big_list)
+    output2 = random.choice(output2)
+    print(output2)
 
 elif input2 == 2:
-    number2 = random.randrange(3,16)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(aquatic_animals)
+    print(output2)
 
 elif input2 == 3:
-    number2 = random.randrange(20,59)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(birds)
+    print(output2)
 
 elif input2 == 4:
-    number2 = random.randrange(63,82)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(bladed_weapons)
+    print(output2)
 
 elif input2 == 5:
-    number2 = random.randrange(86,113)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(celestial)
+    print(output2)
 
 elif input2 == 6:
-    number2 = random.randrange(117,160)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(colors)
+    print(output2)
 
 elif input2 == 7:
-    number2 = random.randrange(164,181)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(felines)
+    print(output2)
 
 elif input2 == 8:
-    number2 = random.randrange(185,204)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(geographic_landforms)
+    print(output2)
 
 elif input2 == 9:
-    number2 = random.randrange(208,226)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(greek__roman_myths)
+    print(output2)
 
 elif input2 == 10:
-    number2 = random.randrange(230,249)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(greek_alphabet)
+    print(output2)
 
 elif input2 == 11:
-    number2 = random.randrange(253,304)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(IC_codenames)
+    print(output2)
 
 elif input2 == 12:
-    number2 = random.randrange(308,333)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(materials)
+    print(output2)
 
 elif input2 == 13:
-    number2 = random.randrange(337,346)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(mythical_creatures)
+    print(output2)
 
 elif input2 == 14:
-    number2 = random.randrange(350,403)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(places)
+    print(output2)
 
 elif input2 == 15:
-    number2 = random.randrange(407,413)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(planets)
+    print(output2)
 
 elif input2 == 16:
-    number2 = random.randrange(417,430)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(prefixes)
+    print(output2)
 
 elif input2 == 17:
-    number2 = random.randrange(434,459)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(science)
+    print(output2)
 
 elif input2 == 18:
-    number2 = random.randrange(463,473)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(shapes)
+    print(output2)
 
 elif input2 == 19:
-    number2 = random.randrange(477,489)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(snakes)
+    print(output2)
 
 elif input2 == 20:
-    number2 = random.randrange(493,499)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(toxins)
+    print(output2)
 
 elif input2 == 21:
-    number2 = random.randrange(503,506)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(tress)
+    print(output2)
 
 elif input2 == 22:
-    number2 = random.randrange(510,522)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(venomous_or_biting_animals)
+    print(output2)
 
 elif input2 == 23:
-    number2 = random.randrange(526,565)
-    print(linecache.getline('wordlist1.txt', number2))
+    output2 = random.choice(weather_atmosphere)
+    print(output2)
