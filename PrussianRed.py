@@ -3,7 +3,6 @@
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
 # Prussian Red is a Project Name Generator
 import random
-import linecache
 
 # intro
 print("Executing...")
