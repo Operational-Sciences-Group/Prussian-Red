@@ -1,4 +1,5 @@
-#Prussian Red v0.9 Using Python 3
+#Prussian Red 1.0v
+#Python 3
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
 # Prussian Red is a Project Name Generator
@@ -53,14 +54,11 @@ print("""
                                        *,
 """)
 
-# Collect user input categories
+# Part 1 collect user input categories
 input("Press enter to continue:")
 
-#input 0 is prefix category
-input0 = int(input("""
-Select a prefix:
-0) No prefix
-1) Random
+
+choicelist = """1) Random
 2) Aquatic Animals
 3) Birds
 4) Bladed Weapons
@@ -83,66 +81,46 @@ Select a prefix:
 21) Trees
 22) Venomous or Biting Animals
 23) Weather & Atmosphere
->"""))
+>"""
+
+#input 0 is prefix category
+print("""
+Select a prefix:
+0) No prefix""")
+input0 = int(input(choicelist))
+
+#While loop to reject invalid user input
+while input0<=-1 or input0>=24:
+    print("\nInvalid input")
+    print("Try again")
+    print("""
+Select a prefix:
+0) No prefix""")
+    input0 = int(input(choicelist))
 
 # input 1 is base word category
-input1 = int(input("""
-Select a base-word:
-1) Random
-2) Aquatic Animals
-3) Birds
-4) Bladed Weapons
-5) Celestial
-6) Colors
-7) Felines
-8) Geographic & Landforms
-9) Greek & Roman Myths
-10) Greek Alphabet
-11) IC Codenames
-12) Materials
-13) Mythical Creatures
-14) Places
-15) Planets
-16) Prefixes
-17) Science
-18) Shapes
-19) Snakes
-20) Toxins
-21) Trees
-22) Venomous or Biting Animals
-23) Weather & Atmosphere
->"""))
+print("\nSelect a base-word:")
+input1 = int(input(choicelist))
+
+while input1<=-1 or input1>=24:
+    print("\nInvalid input")
+    print("Try again")
+    print("\nSelect a base-word:")
+    input1 = int(input(choicelist))
+
 # input 2 is suffix category
-
-input2 = int(input("""
+print("""
 Select a suffix:
-0) No suffix
-1) Random
-2) Aquatic Animals
-3) Birds
-4) Bladed Weapons
-5) Celestial
-6) Colors
-7) Felines
-8) Geographic & Landforms
-9) Greek & Roman Myths
-10) Greek Alphabet
-11) IC Codenames
-12) Materials
-13) Mythical Creatures
-14) Places
-15) Planets
-16) Prefixes
-17) Science
-18) Shapes
-19) Snakes
-20) Toxins
-21) Trees
-22) Venomous or Biting Animals
-23) Weather & Atmosphere
->"""))
+0) No suffix""")
+input2 = int(input(choicelist))
 
-
+while input2<=-1 or input2>=24:
+    print("\nInvalid input")
+    print("Try again")
+    print("""
+Select a suffix:
+0) No suffix""")
+    input2 = int(input(choicelist))
 
 # Init category lists
 
@@ -271,7 +249,6 @@ big_list.append(weather_atmosphere)
 
 
 #Part 2 Assign variables via random number generation.
-
 
 if input0 == 0:
      print("\n")
@@ -553,7 +530,7 @@ elif input2 == 20:
     print(output2)
 
 elif input2 == 21:
-    output2 = random.choice(tress)
+    output2 = random.choice(trees)
     print(output2)
 
 elif input2 == 22:
