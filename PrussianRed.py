@@ -1,5 +1,5 @@
-#Prussian Red v1.0
-#Python 3
+# Prussian Red v1.0
+# Python 3
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
 # Prussian Red is a Project Name Generator
