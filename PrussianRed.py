@@ -208,6 +208,7 @@ snakes = ['Anaconda','Boa','Cobra','Copperhead','Cottonmouth','Garter','Kingsnak
 
 toxins = ['Arsine','Chlorine','Cyanide','Lewisite','Phosgene','Ricin','Sarin']
 
+# “The creation of a thousand forests is in one acorn” ― Ralph Waldo Emerson
 trees = ['Ash','Cypress','Oak','Willow']
 
 venomous_or_biting_animals = ['Abispa','Andrena','Black Widow','Cataglyphis'
