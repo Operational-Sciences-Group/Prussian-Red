@@ -1,6 +1,6 @@
 # Prussian-Red
 
-Prussian Red is a Python 3 tool to enhance your orginization's OPSEC.
+Prussian Red is a Python 3 random word generator to enhance your orginization's OPSEC.
 
 Prussian Red generates random prefix, root, and suffix words.
 
