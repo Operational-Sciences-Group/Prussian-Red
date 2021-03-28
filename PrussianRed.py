@@ -125,7 +125,7 @@ Select a suffix:
 # Init category lists
 
 aquatic_animals = ['Alligator', 'Barracuda', 'Crocodile', 'Gator', 'Great White',
-'Hammerhead' 'Jaws', 'Lionfish', 'Mako', 'Moray', 'Orca', 'Piranha', 'Shark',
+'Hammerhead', 'Jaws', 'Lionfish', 'Mako', 'Moray', 'Orca', 'Piranha', 'Shark',
 'Stingray']
 
 birds = ['Albatross', 'Bald Eagle','Blackhawk','Blue Jay','Chukar','Condor','Crane',
