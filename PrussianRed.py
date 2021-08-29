@@ -1,3 +1,5 @@
+#OSG
+#⌨ >= ⚔
 # Prussian Red v1.0
 # Python 3
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
