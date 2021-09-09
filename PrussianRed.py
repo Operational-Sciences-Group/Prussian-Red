@@ -1,10 +1,11 @@
 # OSG
 # ⌨ >= ⚔
-# Prussian Red v1.0
+# Prussian Red v1.1
 # Python 3
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
 # Prussian Red is a Project Name Generator
+
 import random
 
 # intro
@@ -58,7 +59,6 @@ print("""
 
 # Part 1 collect user input categories
 input("Press enter to continue:")
-
 
 choicelist = """1) Random
 2) Aquatic Animals
@@ -225,31 +225,10 @@ weather_atmosphere = ['Aurora','Avalanche','Blizzard','Cyclone','Dewdrop',
 'Twister','Typhoon','Updraft','Vortex','Waterspout','Whirlwind','Wind Chill']
 
 # List of lists
-big_list = []
-big_list.append(aquatic_animals)
-big_list.append(birds)
-big_list.append(bladed_weapons)
-big_list.append(celestial)
-big_list.append(colors)
-big_list.append(felines)
-big_list.append(geographic_landforms)
-big_list.append(greek__roman_myths)
-big_list.append(greek_alphabet)
-big_list.append(IC_codenames)
-big_list.append(materials)
-big_list.append(mythical_creatures)
-big_list.append(places)
-big_list.append(planets)
-big_list.append(prefixes)
-big_list.append(science)
-big_list.append(shapes)
-big_list.append(snakes)
-big_list.append(toxins)
-big_list.append(trees)
-big_list.append(venomous_or_biting_animals)
-big_list.append(weather_atmosphere)
-
-
+big_list = list(zip(aquatic_animals, birds,bladed_weapons,celestial,colors,
+felines,geographic_landforms,greek__roman_myths,greek_alphabet,IC_codenames,
+materials,mythical_creatures,places,planets,prefixes,science,shapes,snakes,
+toxins,trees,venomous_or_biting_animals,weather_atmosphere))
 
 #Part 2 Assign variables via random number generation.
 
