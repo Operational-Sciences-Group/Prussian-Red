@@ -7,7 +7,7 @@
  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Operational-Sciences-Group/Prussian-Red?style=plastic)
 
 Do you have stunning project ideas?\
-Are you createivly challenged and don't know what to name them?\
+Are you creatively challenged and don't know what to name them?\
 If so, Prussian Red is for you.
 
 ## About
