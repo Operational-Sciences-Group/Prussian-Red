@@ -12,6 +12,7 @@ If so, Prussian Red is for you.
 
 ## About
 Prussian Red generates random prefix, root, and suffix words.
+It can generate more that 1 million unique project names!
 Its creation was inspired by Ed Snowden's book *Permanent Record*<sup>1</sup>:
 
 >"The NSA has a whole protocol you’re supposed to follow when you give a
