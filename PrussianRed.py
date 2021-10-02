@@ -1,6 +1,6 @@
 # OSG
 # ⌨ >= ⚔
-# Prussian Red v1.1
+# Prussian Red v1.2
 # Python 3
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
@@ -230,295 +230,108 @@ felines,geographic_landforms,greek__roman_myths,greek_alphabet,IC_codenames,
 materials,mythical_creatures,places,planets,prefixes,science,shapes,snakes,
 toxins,trees,venomous_or_biting_animals,weather_atmosphere))
 
-#Part 2 Assign variables via random number generation.
-
-if input0 == 0:
-     print("\n")
-
-elif input0 == 1:
-    output0 = random.choice(big_list)
-    output0 = random.choice(output0)
-    print(output0)
-
-elif input0 == 2:
-    output0 = random.choice(aquatic_animals)
-    print(output0)
-
-elif input0 == 3:
-    output0 = random.choice(birds)
-    print(output0)
-
-elif input0 == 4:
-    output0 = random.choice(bladed_weapons)
-    print(output0)
-
-elif input0 == 5:
-    output0 = random.choice(celestial)
-    print(output0)
-
-elif input0 == 6:
-    output0 = random.choice(colors)
-    print(output0)
-
-elif input0 == 7:
-    output0 = random.choice(felines)
-    print(output0)
-
-elif input0 == 8:
-    output0 = random.choice(geographic_landforms)
-    print(output0)
-
-elif input0 == 9:
-    output0 = random.choice(greek__roman_myths)
-    print(output0)
-
-elif input0 == 10:
-    output0 = random.choice(greek_alphabet)
-    print(output0)
-
-elif input0 == 11:
-    output0 = random.choice(IC_codenames)
-    print(output0)
-
-elif input0 == 12:
-    output0 = random.choice(materials)
-    print(output0)
-
-elif input0 == 13:
-    output0 = random.choice(mythical_creatures)
-    print(output0)
-
-elif input0 == 14:
-    output0 = random.choice(places)
-    print(output0)
-
-elif input0 == 15:
-    output0 = random.choice(planets)
-    print(output0)
-
-elif input0 == 16:
-    output0 = random.choice(prefixes)
-    print(output0)
-
-elif input0 == 17:
-    output0 = random.choice(science)
-    print(output0)
-
-elif input0 == 18:
-    output0 = random.choice(shapes)
-    print(output0)
-
-elif input0 == 19:
-    output0 = random.choice(snakes)
-    print(output0)
-
-elif input0 == 20:
-    output0 = random.choice(birds)
-    print(output0)
-
-elif input0 == 21:
-    output0 = random.choice(trees)
-    print(output0)
-
-elif input0 == 22:
-    output0 = random.choice(venomous_or_biting_animals)
-    print(output0)
-
-elif input0 == 23:
-    output0 = random.choice(weather_atmosphere)
-    print(output0)
-
-#Start baseword
-if input1 == 0:
-    print("\n")
-
-elif input1 == 1:
-    output1 = random.choice(big_list)
-    output1 = random.choice(output1)
-    print(output1)
-
-elif input1 == 2:
-    output1 = random.choice(aquatic_animals)
-    print(output1)
-
-elif input1 == 3:
-    output1 = random.choice(birds)
-    print(output1)
-
-elif input1 == 4:
-    output1 = random.choice(bladed_weapons)
-    print(output1)
-
-elif input1 == 5:
-    output1 = random.choice(celestial)
-    print(output1)
-
-elif input1 == 6:
-    output1 = random.choice(colors)
-    print(output1)
-
-elif input1 == 7:
-    output1 = random.choice(felines)
-    print(output1)
-
-elif input1 == 8:
-    output1 = random.choice(geographic_landforms)
-    print(output1)
-
-elif input1 == 9:
-    output1 = random.choice(greek__roman_myths)
-    print(output1)
-
-elif input1 == 10:
-    output1 = random.choice(greek_alphabet)
-    print(output1)
-
-elif input1 == 11:
-    output1 = random.choice(IC_codenames)
-    print(output1)
-
-elif input1 == 12:
-    output1 = random.choice(materials)
-    print(output1)
-
-elif input1 == 13:
-    output1 = random.choice(mythical_creatures)
-    print(output1)
-
-elif input1 == 14:
-    output1 = random.choice(places)
-    print(output1)
-
-elif input1 == 15:
-    output1 = random.choice(planets)
-    print(output1)
-
-elif input1 == 16:
-    output1 = random.choice(prefixes)
-    print(output1)
-
-elif input1 == 17:
-    output1 = random.choice(science)
-    print(output1)
-
-elif input1 == 18:
-    output1 = random.choice(shapes)
-    print(output1)
-
-elif input1 == 19:
-    output1 = random.choice(snakes)
-    print(output1)
-
-elif input1 == 20:
-    output1 = random.choice(toxins)
-    print(output1)
-
-elif input1 == 21:
-    output1 = random.choice(trees)
-    print(output1)
-
-elif input1 == 22:
-    output1 = random.choice(venomous_or_biting_animals)
-    print(output1)
-
-elif input1 == 23:
-    output1 = random.choice(weather_atmosphere)
-    print(output1)
-
-#start suffix
-
-if input2 == 0:
-    print("\n")
-
-elif input2 == 1:
-    output2 = random.choice(big_list)
-    output2 = random.choice(output2)
-    print(output2)
-
-elif input2 == 2:
-    output2 = random.choice(aquatic_animals)
-    print(output2)
-
-elif input2 == 3:
-    output2 = random.choice(birds)
-    print(output2)
-
-elif input2 == 4:
-    output2 = random.choice(bladed_weapons)
-    print(output2)
-
-elif input2 == 5:
-    output2 = random.choice(celestial)
-    print(output2)
-
-elif input2 == 6:
-    output2 = random.choice(colors)
-    print(output2)
-
-elif input2 == 7:
-    output2 = random.choice(felines)
-    print(output2)
-
-elif input2 == 8:
-    output2 = random.choice(geographic_landforms)
-    print(output2)
-
-elif input2 == 9:
-    output2 = random.choice(greek__roman_myths)
-    print(output2)
-
-elif input2 == 10:
-    output2 = random.choice(greek_alphabet)
-    print(output2)
-
-elif input2 == 11:
-    output2 = random.choice(IC_codenames)
-    print(output2)
-
-elif input2 == 12:
-    output2 = random.choice(materials)
-    print(output2)
-
-elif input2 == 13:
-    output2 = random.choice(mythical_creatures)
-    print(output2)
-
-elif input2 == 14:
-    output2 = random.choice(places)
-    print(output2)
-
-elif input2 == 15:
-    output2 = random.choice(planets)
-    print(output2)
-
-elif input2 == 16:
-    output2 = random.choice(prefixes)
-    print(output2)
-
-elif input2 == 17:
-    output2 = random.choice(science)
-    print(output2)
-
-elif input2 == 18:
-    output2 = random.choice(shapes)
-    print(output2)
-
-elif input2 == 19:
-    output2 = random.choice(snakes)
-    print(output2)
-
-elif input2 == 20:
-    output2 = random.choice(toxins)
-    print(output2)
-
-elif input2 == 21:
-    output2 = random.choice(trees)
-    print(output2)
-
-elif input2 == 22:
-    output2 = random.choice(venomous_or_biting_animals)
-    print(output2)
-
-elif input2 == 23:
-    output2 = random.choice(weather_atmosphere)
-    print(output2)
+#Part 2 Assign outputs via random number generation.
+
+for i in range(3):
+    if i==0:
+        input=input0
+    elif i==1:
+        input=input1
+    elif i==2:
+        input=input2
+
+    if input == 0:
+        print("\n")
+
+    elif input == 1:
+        output = random.choice(big_list)
+        output = random.choice(output)
+        print(output)
+
+    elif input == 2:
+        output = random.choice(aquatic_animals)
+        print(output)
+
+    elif input == 3:
+        output = random.choice(birds)
+        print(output)
+
+    elif input0 == 4:
+        output = random.choice(bladed_weapons)
+        print(output)
+
+    elif input == 5:
+        output = random.choice(celestial)
+        print(output)
+
+    elif input == 6:
+        output = random.choice(colors)
+        print(output)
+
+    elif input == 7:
+        output = random.choice(felines)
+        print(output)
+
+    elif input == 8:
+        output = random.choice(geographic_landforms)
+        print(output)
+
+    elif input == 9:
+        output = random.choice(greek__roman_myths)
+        print(output)
+
+    elif input == 10:
+        output = random.choice(greek_alphabet)
+        print(output)
+
+    elif input == 11:
+        output = random.choice(IC_codenames)
+        print(output)
+
+    elif input0 == 12:
+        output0 = random.choice(materials)
+        print(output0)
+
+    elif input == 13:
+        output = random.choice(mythical_creatures)
+        print(output)
+
+    elif input == 14:
+        output = random.choice(places)
+        print(output)
+
+    elif input == 15:
+        output = random.choice(planets)
+        print(output)
+
+    elif input == 16:
+        output = random.choice(prefixes)
+        print(output)
+
+    elif input == 17:
+        output = random.choice(science)
+        print(output)
+
+    elif input == 18:
+        output = random.choice(shapes)
+        print(output)
+
+    elif input == 19:
+        output = random.choice(snakes)
+        print(output)
+
+    elif input == 20:
+        output = random.choice(birds)
+        print(output)
+
+    elif input == 21:
+        output = random.choice(trees)
+        print(output)
+
+    elif input == 22:
+        output = random.choice(venomous_or_biting_animals)
+        print(output)
+
+    elif input == 23:
+        output = random.choice(weather_atmosphere)
+        print(output)
