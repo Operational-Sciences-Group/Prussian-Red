@@ -1,6 +1,6 @@
 # OSG
 # ⌨ >= ⚔
-# Prussian Red v1.2
+# Prussian Red v1.2.1
 # Python 3
 # This program is inspired by Ed Snowden's book Permanent Record towards the end of chapter 16
 # "It's basically an I Ching stochastic procedure that randomly picks words from two columns."
@@ -256,7 +256,7 @@ for i in range(3):
         output = random.choice(birds)
         print(output)
 
-    elif input0 == 4:
+    elif input == 4:
         output = random.choice(bladed_weapons)
         print(output)
 
@@ -288,9 +288,9 @@ for i in range(3):
         output = random.choice(IC_codenames)
         print(output)
 
-    elif input0 == 12:
-        output0 = random.choice(materials)
-        print(output0)
+    elif input == 12:
+        output = random.choice(materials)
+        print(output)
 
     elif input == 13:
         output = random.choice(mythical_creatures)
