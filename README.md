@@ -2,7 +2,7 @@
 #### Prussian Red is a Python 3 random word generator to enhance your organization's OPSEC.
 
  ![GitHub top language](https://img.shields.io/github/languages/top/Operational-Sciences-Group/Prussian-Red?label=Python3&logo=Python&style=plastic)
- ![Version](https://img.shields.io/badge/Version-1.2-sucess?style=plastic)
+ ![Version](https://img.shields.io/badge/Version-1.2.1-sucess?style=plastic)
  ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Operational-Sciences-Group/Prussian-Red?style=plastic)
  ![GitHub issues](https://img.shields.io/github/issues/Operational-Sciences-Group/Prussian-Red?logo=Github&style=plastic)
 
